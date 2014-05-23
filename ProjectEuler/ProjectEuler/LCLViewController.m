@@ -7,6 +7,7 @@
 //
 
 #import "LCLViewController.h"
+#import "ProjectEuler.h"
 
 @interface LCLViewController ()
 
@@ -17,7 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"Problem 1: %d", [ProjectEuler p1NaturalLoopSumOf:3 andNumber:5 notToExceed:1000]);
+    NSLog(@"Problem 2: %d", [ProjectEuler p2SumEvenFibonacciSequenceUnder:4000000]);
 }
 
 - (void)didReceiveMemoryWarning

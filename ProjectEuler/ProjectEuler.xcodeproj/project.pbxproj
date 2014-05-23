@@ -21,7 +21,7 @@
 		87065F17192F0B9C009CFCBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87065EF9192F0B9C009CFCBD /* UIKit.framework */; };
 		87065F1F192F0B9C009CFCBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87065F1D192F0B9C009CFCBD /* InfoPlist.strings */; };
 		87065F21192F0B9C009CFCBD /* ProjectEulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87065F20192F0B9C009CFCBD /* ProjectEulerTests.m */; };
-		87065F2C192F0BD1009CFCBD /* LCLProblem1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87065F2B192F0BD1009CFCBD /* LCLProblem1ViewController.m */; };
+		87065F2F192F1E84009CFCBD /* ProjectEuler.m in Sources */ = {isa = PBXBuildFile; fileRef = 87065F2E192F1E84009CFCBD /* ProjectEuler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +54,8 @@
 		87065F1C192F0B9C009CFCBD /* ProjectEulerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectEulerTests-Info.plist"; sourceTree = "<group>"; };
 		87065F1E192F0B9C009CFCBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87065F20192F0B9C009CFCBD /* ProjectEulerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectEulerTests.m; sourceTree = "<group>"; };
-		87065F2A192F0BD1009CFCBD /* LCLProblem1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLProblem1ViewController.h; sourceTree = "<group>"; };
-		87065F2B192F0BD1009CFCBD /* LCLProblem1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLProblem1ViewController.m; sourceTree = "<group>"; };
+		87065F2D192F1E84009CFCBD /* ProjectEuler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectEuler.h; sourceTree = "<group>"; };
+		87065F2E192F1E84009CFCBD /* ProjectEuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectEuler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +117,10 @@
 			children = (
 				87065F04192F0B9C009CFCBD /* LCLAppDelegate.h */,
 				87065F05192F0B9C009CFCBD /* LCLAppDelegate.m */,
+				87065F30192F1E92009CFCBD /* Models */,
 				87065F07192F0B9C009CFCBD /* Main.storyboard */,
 				87065F0A192F0B9C009CFCBD /* LCLViewController.h */,
 				87065F0B192F0B9C009CFCBD /* LCLViewController.m */,
-				87065F2A192F0BD1009CFCBD /* LCLProblem1ViewController.h */,
-				87065F2B192F0BD1009CFCBD /* LCLProblem1ViewController.m */,
 				87065F0D192F0B9C009CFCBD /* Images.xcassets */,
 				87065EFC192F0B9C009CFCBD /* Supporting Files */,
 			);
@@ -155,6 +154,15 @@
 				87065F1D192F0B9C009CFCBD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87065F30192F1E92009CFCBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87065F2D192F1E84009CFCBD /* ProjectEuler.h */,
+				87065F2E192F1E84009CFCBD /* ProjectEuler.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				87065F06192F0B9C009CFCBD /* LCLAppDelegate.m in Sources */,
+				87065F2F192F1E84009CFCBD /* ProjectEuler.m in Sources */,
 				87065F0C192F0B9C009CFCBD /* LCLViewController.m in Sources */,
-				87065F2C192F0BD1009CFCBD /* LCLProblem1ViewController.m in Sources */,
 				87065F02192F0B9C009CFCBD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
