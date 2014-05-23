@@ -13,6 +13,10 @@
 + (NSInteger)p1NaturalLoopSumOf:(NSInteger)firstNumber
                       andNumber:(NSInteger)secondNumber
                     notToExceed:(NSInteger)maxNumber {
+
+    //    Probably a faster, but harder to understand solution
+    //    Using Arthimetic Sum of Series formula:
+    //
     //    NSInteger threes = 333*(3+999)/2;
     //    NSInteger fives = 199*(5+995)/2;
     //    NSInteger fifteens = 66*(15+990)/2;
@@ -46,6 +50,29 @@
         }
     }
     return fibonacciSum;
+}
+
++ (long long)p3LargestPrimeFactorof:(long long)originalNumber {
+    long long potentialPrime = 3;
+    long long maxPrimeFound = 3;
+    NSMutableArray *primes = [NSMutableArray arrayWithArray:@[@2, @3]];
+    
+    while (potentialPrime < sqrt(originalNumber)) {
+        if (originalNumber % potentialPrime == 0) {
+            BOOL isPrime = YES;
+            for (NSNumber *prime in primes) {
+                if (potentialPrime % [prime longLongValue] == 0) {
+                    isPrime = NO;
+                }
+            }
+            if (isPrime) {
+                [primes addObject:@(potentialPrime)];
+                maxPrimeFound = potentialPrime;
+            }
+        }
+        potentialPrime = potentialPrime + 2;
+    }
+    return maxPrimeFound;
 }
 
 @end
