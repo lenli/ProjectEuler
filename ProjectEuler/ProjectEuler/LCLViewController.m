@@ -27,7 +27,8 @@
     [ProjectEuler p2SumEvenFibonacciSequenceUnder:4000000];
     [ProjectEuler p3LargestPrimeFactorof:600851475143];
     [ProjectEuler p4LargestPalidromeFromProductOfNumbersLessThan:999];
-    
+    [ProjectEuler p5SmallestNumberEvenlyDivisibleByAllNumbersUnder:20];
+
     
 }
 
