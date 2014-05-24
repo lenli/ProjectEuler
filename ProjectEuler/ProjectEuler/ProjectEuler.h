@@ -14,5 +14,6 @@
                     notToExceed:(NSInteger)maxNumber;
 + (NSInteger)p2SumEvenFibonacciSequenceUnder:(NSInteger)maxNumber;
 + (long long)p3LargestPrimeFactorof:(long long)number;
++ (NSInteger)p4LargestPalidromeFromProductOfNumbersLessThan:(NSInteger)maxNumber;
 
 @end
