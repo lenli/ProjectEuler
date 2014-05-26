@@ -17,6 +17,7 @@
     NSDate *startTime = [NSDate date];
 
         // Problem 1
+        // Find the sum of all the multiples of 3 or 5 below 1000.
         NSInteger naturalSum = 0;
         for (NSInteger i=1; i<maxNumber; i++) {
             if (i % firstNumber == 0 || i % secondNumber == 0) {
@@ -46,6 +47,7 @@
     NSDate *startTime = [NSDate date];
     
         // Problem 2
+        // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
         NSMutableArray *fibonacciSequence = [NSMutableArray new];
         [fibonacciSequence addObject:@(1)];
         [fibonacciSequence addObject:@(2)];
@@ -72,6 +74,7 @@
     NSDate *startTime = [NSDate date];
     
         // Problem 3
+        // What is the largest prime factor of the number 600851475143 ?
         long long potentialPrime;
         long long maxPrimeFound;
         NSMutableArray *primes = [NSMutableArray new];
@@ -115,6 +118,7 @@
     NSDate *startTime = [NSDate date];
 
         // Problem 4
+        // Find the largest palindrome made from the product of two 3-digit numbers.
         NSInteger maxPalidrome = 0;
         for (NSInteger i = maxNumber; i > 0; i--) {
             for (NSInteger j = maxNumber; j > 0; j--) {
@@ -147,6 +151,7 @@
     NSDate *startTime = [NSDate date];
     
         // Problem 5
+        // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
         NSInteger currentNumber = 1;
         NSMutableDictionary *factors = [NSMutableDictionary new];
     
@@ -218,6 +223,7 @@
     NSDate *startTime = [NSDate date];
     
         // Problem 6
+        // Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
         NSInteger squareOfSums;
         NSInteger subtotal = 0;
         NSInteger sumOfSquares = 0;
@@ -244,6 +250,8 @@
     NSDate *startTime = [NSDate date];
     
     // Problem 7
+    // What is the 10001st prime number?
+    
     NSInteger potentialPrime = 1;
     NSInteger primeNumberCount = 0;
     NSMutableArray *primes = [NSMutableArray new];
