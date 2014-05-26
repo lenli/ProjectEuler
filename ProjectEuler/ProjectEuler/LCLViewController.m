@@ -29,6 +29,7 @@
     [ProjectEuler p4LargestPalidromeFromProductOfNumbersLessThan:999];
     [ProjectEuler p5SmallestNumberEvenlyDivisibleByAllNumbersUnder:20];
     [ProjectEuler p6differenceBetweenSumOfSquaresAndSquareOfSumsForNumbers:100];
+    [ProjectEuler p7findNthPrimeNumberWhere:10001];
     
 }
 

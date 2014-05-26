@@ -17,5 +17,6 @@
 + (NSInteger)p4LargestPalidromeFromProductOfNumbersLessThan:(NSInteger)maxNumber;
 + (NSInteger)p5SmallestNumberEvenlyDivisibleByAllNumbersUnder:(NSInteger)maxNumber;
 + (NSInteger)p6differenceBetweenSumOfSquaresAndSquareOfSumsForNumbers:(NSInteger)quantityOfNumbers;
++ (NSInteger)p7findNthPrimeNumberWhere:(NSInteger)nthPrimeNumber;
 
 @end

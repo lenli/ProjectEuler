@@ -37,7 +37,7 @@
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
-    NSLog(@"Problem 1: %d, Run Time = %f", naturalSum, runTime);
+    NSLog(@"Problem 1: %d, Run Time (secs) = %f", naturalSum, runTime);
     return naturalSum;
 }
 
@@ -63,7 +63,7 @@
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
-    NSLog(@"Problem 2: %d, Run Time = %f", fibonacciSum, runTime);
+    NSLog(@"Problem 2: %d, Run Time (secs) = %f", fibonacciSum, runTime);
     return fibonacciSum;
 }
 
@@ -72,41 +72,41 @@
     NSDate *startTime = [NSDate date];
     
         // Problem 3
-    long long potentialPrime;
-    long long maxPrimeFound;
-    NSMutableArray *primes = [NSMutableArray new];
-    
-    if (originalNumber > 2) {
-        potentialPrime = 3;
-        maxPrimeFound = 3;
-        primes = [NSMutableArray arrayWithArray:@[@2, @3]];
+        long long potentialPrime;
+        long long maxPrimeFound;
+        NSMutableArray *primes = [NSMutableArray new];
         
-        while (potentialPrime < sqrt(originalNumber)) {
-            if (originalNumber % potentialPrime == 0) {
-                BOOL isPrime = YES;
-                for (NSNumber *prime in primes) {
-                    if (potentialPrime % [prime longLongValue] == 0) {
-                        isPrime = NO;
+        if (originalNumber > 2) {
+            potentialPrime = 3;
+            maxPrimeFound = 3;
+            primes = [NSMutableArray arrayWithArray:@[@2, @3]];
+            
+            while (potentialPrime < sqrt(originalNumber)) {
+                if (originalNumber % potentialPrime == 0) {
+                    BOOL isPrime = YES;
+                    for (NSNumber *prime in primes) {
+                        if (potentialPrime % [prime longLongValue] == 0) {
+                            isPrime = NO;
+                        }
+                    }
+                    if (isPrime) {
+                        [primes addObject:@(potentialPrime)];
+                        maxPrimeFound = potentialPrime;
                     }
                 }
-                if (isPrime) {
-                    [primes addObject:@(potentialPrime)];
-                    maxPrimeFound = potentialPrime;
-                }
+                potentialPrime = potentialPrime + 2;
             }
-            potentialPrime = potentialPrime + 2;
-        }
-    } else {
-        if (originalNumber % 2 == 0) {
-            maxPrimeFound = 2;
         } else {
-            maxPrimeFound = 1;
+            if (originalNumber % 2 == 0) {
+                maxPrimeFound = 2;
+            } else {
+                maxPrimeFound = 1;
+            }
         }
-    }
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
-    NSLog(@"Problem 3: %lld, Run Time = %f", maxPrimeFound, runTime);
+    NSLog(@"Problem 3: %lld, Run Time (secs) = %f", maxPrimeFound, runTime);
     return maxPrimeFound;
 }
 
@@ -138,7 +138,7 @@
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
-    NSLog(@"Problem 4: %d, Run Time = %f", maxPalidrome, runTime);
+    NSLog(@"Problem 4: %d, Run Time (secs) = %f", maxPalidrome, runTime);
     return maxPalidrome;
 }
 
@@ -209,7 +209,7 @@
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
-    NSLog(@"Problem 5: %d, Run Time = %f", smallestInteger, runTime);
+    NSLog(@"Problem 5: %d, Run Time (secs) = %f", smallestInteger, runTime);
     return smallestInteger;
 }
 
@@ -227,12 +227,59 @@
         }
         squareOfSums = pow(subtotal,2);
     
+        // The no loop formula:
+        //
+        // sum = limit(limit + 1)=2
+        // sum sq = (2limit + 1)(limit + 1)limit=6
+    
         NSInteger difference = squareOfSums - sumOfSquares;
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
-    NSLog(@"Problem 6: %d, Run Time = %f", difference, runTime);
+    NSLog(@"Problem 6: %d, Run Time (secs) = %f", difference, runTime);
     return difference;
+}
+
++ (NSInteger)p7findNthPrimeNumberWhere:(NSInteger)nthPrimeNumber {
+    NSDate *startTime = [NSDate date];
+    
+    // Problem 7
+    NSInteger potentialPrime = 1;
+    NSInteger primeNumberCount = 0;
+    NSMutableArray *primes = [NSMutableArray new];
+    
+    if (nthPrimeNumber >= 1) {
+        [primes addObject:@(2)];
+        potentialPrime = 3;
+        primeNumberCount = 1;
+    }
+    
+    if (nthPrimeNumber >= 2) {
+        [primes addObject:@(3)];
+        potentialPrime = 5;
+        primeNumberCount = 2;
+    }
+    
+    while (primeNumberCount < nthPrimeNumber) {
+        BOOL isPrime = YES;
+        for (NSNumber *prime in primes) {
+            if (potentialPrime % [prime integerValue] == 0) {
+                isPrime = NO;
+                break;
+            }
+        }
+        if (isPrime) {
+            [primes addObject:@(potentialPrime)];
+            primeNumberCount++;
+        }
+        potentialPrime = potentialPrime + 2;
+    }
+    
+    NSInteger maxPrimeFound = [[primes lastObject] integerValue];
+    NSDate *endTime = [NSDate date];
+    NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
+    NSLog(@"Problem 7: %d, Run Time (secs) = %f", maxPrimeFound, runTime);
+    return maxPrimeFound;
 }
 
 
