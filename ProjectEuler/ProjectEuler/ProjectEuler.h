@@ -16,5 +16,6 @@
 + (long long)p3LargestPrimeFactorof:(long long)number;
 + (NSInteger)p4LargestPalidromeFromProductOfNumbersLessThan:(NSInteger)maxNumber;
 + (NSInteger)p5SmallestNumberEvenlyDivisibleByAllNumbersUnder:(NSInteger)maxNumber;
++ (NSInteger)p6differenceBetweenSumOfSquaresAndSquareOfSumsForNumbers:(NSInteger)quantityOfNumbers;
 
 @end

@@ -72,9 +72,14 @@
     NSDate *startTime = [NSDate date];
     
         // Problem 3
-        long long potentialPrime = 3;
-        long long maxPrimeFound = 3;
-        NSMutableArray *primes = [NSMutableArray arrayWithArray:@[@2, @3]];
+    long long potentialPrime;
+    long long maxPrimeFound;
+    NSMutableArray *primes = [NSMutableArray new];
+    
+    if (originalNumber > 2) {
+        potentialPrime = 3;
+        maxPrimeFound = 3;
+        primes = [NSMutableArray arrayWithArray:@[@2, @3]];
         
         while (potentialPrime < sqrt(originalNumber)) {
             if (originalNumber % potentialPrime == 0) {
@@ -91,6 +96,13 @@
             }
             potentialPrime = potentialPrime + 2;
         }
+    } else {
+        if (originalNumber % 2 == 0) {
+            maxPrimeFound = 2;
+        } else {
+            maxPrimeFound = 1;
+        }
+    }
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
@@ -199,6 +211,28 @@
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
     NSLog(@"Problem 5: %d, Run Time = %f", smallestInteger, runTime);
     return smallestInteger;
+}
+
++ (NSInteger)p6differenceBetweenSumOfSquaresAndSquareOfSumsForNumbers:(NSInteger)quantityOfNumbers {
+    
+    NSDate *startTime = [NSDate date];
+    
+        // Problem 6
+        NSInteger squareOfSums;
+        NSInteger subtotal = 0;
+        NSInteger sumOfSquares = 0;
+        for (NSInteger i = 1; i <= quantityOfNumbers; i++) {
+            subtotal += i;
+            sumOfSquares += pow(i,2);
+        }
+        squareOfSums = pow(subtotal,2);
+    
+        NSInteger difference = squareOfSums - sumOfSquares;
+    
+    NSDate *endTime = [NSDate date];
+    NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
+    NSLog(@"Problem 6: %d, Run Time = %f", difference, runTime);
+    return difference;
 }
 
 
