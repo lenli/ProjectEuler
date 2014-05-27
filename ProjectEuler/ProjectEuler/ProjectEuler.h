@@ -21,5 +21,6 @@
 + (long long)p8findAdjacentDigitsWithGreatestProduct:(NSInteger)numberofDigits;
 + (NSInteger)p9PythagoreanTripletWhereSum:(NSInteger)sumOfTriplet;
 + (long long)p10SumOfPrimesBelow:(NSInteger)maxPrime;
++ (long long)p11ProductOfAdjacentNumbers:(NSInteger)quantityOfAdjacentNumbers;
 
 @end

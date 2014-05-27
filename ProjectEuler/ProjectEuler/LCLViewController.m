@@ -23,10 +23,13 @@
     // I am implementing for also the most understandable solution as well.
     // An answer that is super fast, but that nobody can understand easily is difficult to debug.
     
-    // 10 Find the sum of all the primes below two million.
+    // 11 -- What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+    [ProjectEuler p11ProductOfAdjacentNumbers:4];
+    
+    // 10 -- Find the sum of all the primes below two million.
     [ProjectEuler p10SumOfPrimesBelow:2000000];
     
-    // 9 There exists exactly one Pythagorean triplet for which a + b + c = 1000.  Find the product abc.
+    // 9 -- There exists exactly one Pythagorean triplet for which a + b + c = 1000.  Find the product abc.
     [ProjectEuler p9PythagoreanTripletWhereSum:1000];
     
     // 8 - Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
