@@ -20,5 +20,6 @@
 + (NSInteger)p7findNthPrimeNumberWhere:(NSInteger)nthPrimeNumber;
 + (long long)p8findAdjacentDigitsWithGreatestProduct:(NSInteger)numberofDigits;
 + (NSInteger)p9PythagoreanTripletWhereSum:(NSInteger)sumOfTriplet;
++ (long long)p10SumOfPrimesBelow:(NSInteger)maxPrime;
 
 @end

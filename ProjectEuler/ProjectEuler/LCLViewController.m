@@ -23,6 +23,9 @@
     // I am implementing for also the most understandable solution as well.
     // An answer that is super fast, but that nobody can understand easily is difficult to debug.
     
+    // 10 Find the sum of all the primes below two million.
+    [ProjectEuler p10SumOfPrimesBelow:2000000];
+    
     // 9 There exists exactly one Pythagorean triplet for which a + b + c = 1000.  Find the product abc.
     [ProjectEuler p9PythagoreanTripletWhereSum:1000];
     

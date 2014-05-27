@@ -249,39 +249,39 @@
 + (NSInteger)p7findNthPrimeNumberWhere:(NSInteger)nthPrimeNumber {
     NSDate *startTime = [NSDate date];
     
-    // Problem 7
-    // What is the 10001st prime number?
-    
-    NSInteger potentialPrime = 1;
-    NSInteger primeNumberCount = 0;
-    NSMutableArray *primes = [NSMutableArray new];
-    
-    if (nthPrimeNumber >= 1) {
-        [primes addObject:@(2)];
-        potentialPrime = 3;
-        primeNumberCount = 1;
-    }
-    
-    if (nthPrimeNumber >= 2) {
-        [primes addObject:@(3)];
-        potentialPrime = 5;
-        primeNumberCount = 2;
-    }
-    
-    while (primeNumberCount < nthPrimeNumber) {
-        BOOL isPrime = YES;
-        for (NSNumber *prime in primes) {
-            if (potentialPrime % [prime integerValue] == 0) {
-                isPrime = NO;
-                break;
+        // Problem 7
+        // What is the 10001st prime number?
+        
+        NSInteger potentialPrime = 1;
+        NSInteger primeNumberCount = 0;
+        NSMutableArray *primes = [NSMutableArray new];
+        
+        if (nthPrimeNumber >= 1) {
+            [primes addObject:@(2)];
+            potentialPrime = 3;
+            primeNumberCount = 1;
+        }
+        
+        if (nthPrimeNumber >= 2) {
+            [primes addObject:@(3)];
+            potentialPrime = 5;
+            primeNumberCount = 2;
+        }
+        
+        while (primeNumberCount < nthPrimeNumber) {
+            BOOL isPrime = YES;
+            for (NSNumber *prime in primes) {
+                if (potentialPrime % [prime integerValue] == 0) {
+                    isPrime = NO;
+                    break;
+                }
             }
+            if (isPrime) {
+                [primes addObject:@(potentialPrime)];
+                primeNumberCount++;
+            }
+            potentialPrime = potentialPrime + 2;
         }
-        if (isPrime) {
-            [primes addObject:@(potentialPrime)];
-            primeNumberCount++;
-        }
-        potentialPrime = potentialPrime + 2;
-    }
     
     NSInteger maxPrimeFound = [[primes lastObject] integerValue];
     NSDate *endTime = [NSDate date];
@@ -323,30 +323,48 @@
     
     NSDate *startTime = [NSDate date];
     
-    // Problem 9
-    NSInteger tripletProduct = 0;
-    NSInteger i = 0;
-    NSInteger j = 0;
-    NSInteger k = 0;
-    
-    for (i = 1; i < sumOfTriplet-3; i++) {
-        for (j = i+1; j < sumOfTriplet-i; j++) {
-            k = sumOfTriplet-j-i;
-            if (pow(i,2)+pow(j,2) == pow(k,2)) {
-                tripletProduct = i * j * k;
-                break;
+        // Problem 9
+        NSInteger tripletProduct = 0;
+        NSInteger i = 0;
+        NSInteger j = 0;
+        NSInteger k = 0;
+        
+        for (i = 1; i < sumOfTriplet-3; i++) {
+            for (j = i+1; j < sumOfTriplet-i; j++) {
+                k = sumOfTriplet-j-i;
+                if (pow(i,2)+pow(j,2) == pow(k,2)) {
+                    tripletProduct = i * j * k;
+                    break;
+                }
             }
         }
-    }
-    // Without programming:
-    // a= 2mn; b= m^2 -n^2; c= m^2 + n^2;
-    // a + b + c = 1000;
-    // Solve for m, n
+        // Without programming:
+        // a= 2mn; b= m^2 -n^2; c= m^2 + n^2;
+        // a + b + c = 1000;
+        // Solve for m, n
     
     NSDate *endTime = [NSDate date];
     NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
     NSLog(@"Problem 9: %d, Run Time (secs) = %f", tripletProduct, runTime);
     return tripletProduct;
+}
+
++ (long long)p10SumOfPrimesBelow:(NSInteger)maxPrime {
+    
+    NSDate *startTime = [NSDate date];
+    
+        // Problem 10
+        
+        long long sumOfPrimes = 0;
+        NSArray *primes = [ProjectEuler primesBelow:maxPrime];
+        for (NSNumber *prime in primes) {
+            sumOfPrimes += [prime integerValue];
+        }
+    
+    NSDate *endTime = [NSDate date];
+    NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
+    NSLog(@"Problem 10: %lld, Run Time (secs) = %f", sumOfPrimes, runTime);
+    return sumOfPrimes;
 }
 
 #pragma mark - Helper Methods
@@ -358,6 +376,43 @@
         [originalNumberArray addObject:character];
     }
     return originalNumberArray;
+}
+
++ (NSArray *)primesBelow:(NSInteger)maxPrime {
+    NSInteger potentialPrime = 1;
+    NSInteger primeNumberCount = 0;
+    NSMutableArray *primes = [NSMutableArray new];
+    
+    if (maxPrime >= 1) {
+        [primes addObject:@(2)];
+        potentialPrime = 3;
+        primeNumberCount = 1;
+    }
+    
+    if (maxPrime >= 2) {
+        [primes addObject:@(3)];
+        potentialPrime = 5;
+        primeNumberCount = 2;
+    }
+    
+    while (potentialPrime < maxPrime) {
+        BOOL isPrime = YES;
+        for (NSNumber *prime in primes) {
+            if ([prime integerValue] > sqrt(potentialPrime)) {
+                break;
+            }
+            if (potentialPrime % [prime integerValue] == 0) {
+                isPrime = NO;
+                break;
+            }
+        }
+        if (isPrime) {
+            [primes addObject:@(potentialPrime)];
+            primeNumberCount++;
+        }
+        potentialPrime = potentialPrime + 2;
+    }
+    return primes;
 }
 
 @end
