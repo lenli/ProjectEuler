@@ -22,5 +22,5 @@
 + (NSInteger)p9PythagoreanTripletWhereSum:(NSInteger)sumOfTriplet;
 + (long long)p10SumOfPrimesBelow:(NSInteger)maxPrime;
 + (long long)p11ProductOfAdjacentNumbers:(NSInteger)quantityOfAdjacentNumbers;
-
++ (long long)p16SumOfPowerTwoToDigits:(NSInteger)powerOfTwo;
 @end

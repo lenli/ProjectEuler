@@ -23,6 +23,9 @@
     // I am implementing for also the most understandable solution as well.
     // An answer that is super fast, but that nobody can understand easily is difficult to debug.
     
+    // 16 -- What is the sum of the digits of the number 21000?
+    [ProjectEuler p16SumOfPowerTwoToDigits:1000];
+    
     // 11 -- What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
     [ProjectEuler p11ProductOfAdjacentNumbers:4];
     

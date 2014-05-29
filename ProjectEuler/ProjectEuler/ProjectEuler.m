@@ -425,8 +425,8 @@
         for (NSInteger x = 0; x <= [gridRows[y] count] - productLength; x++) {
             long long currentMax = 1;
             for (NSInteger i = 0; i < productLength; i++) {
-                NSInteger offsetIndex = x + i;
-                NSInteger currentValue = [gridRows[y][offsetIndex] integerValue];
+                NSInteger offsetXIndex = x + i;
+                NSInteger currentValue = [gridRows[y][offsetXIndex] integerValue];
                 currentMax *= currentValue;
             }
             if (currentMax > productOfNumbers) {
@@ -440,8 +440,8 @@
         for (NSInteger x = 0; x < [gridRows[y] count]; x++) {
             long long currentMax = 1;
             for (NSInteger i = 0; i < productLength; i++) {
-                NSInteger offsetIndex = y + i;
-                NSInteger currentValue = [gridRows[offsetIndex][x] integerValue];
+                NSInteger offsetYIndex = y + i;
+                NSInteger currentValue = [gridRows[offsetYIndex][x] integerValue];
                 currentMax *= currentValue;
             }
             if (currentMax > productOfNumbers) {
@@ -458,7 +458,8 @@
                 NSInteger offsetXIndex = x + i;
                 NSInteger offsetYIndex = y + i;
                 NSInteger currentValue = [gridRows[offsetYIndex][offsetXIndex] integerValue];
-                currentMax *= currentValue;            }
+                currentMax *= currentValue;
+            }
             if (currentMax > productOfNumbers) {
                 productOfNumbers = currentMax;
             }
@@ -486,6 +487,29 @@
     NSLog(@"Problem 11: %lld, Run Time (secs) = %f", productOfNumbers, runTime);
     return productOfNumbers;
     
+}
+
++ (long long)p16SumOfPowerTwoToDigits:(NSInteger)powerOfTwo {
+    
+    NSDate *startTime = [NSDate date];
+    
+    // Problem 16
+    
+    long long sumOfDigits = 0;
+    long double numberWithDigits = pow(2, powerOfTwo);
+    NSString *numberStringOriginal = [NSString stringWithFormat:@"%Lf", numberWithDigits];
+    NSRange dotRange = [numberStringOriginal rangeOfString:@"."];
+    NSString *numberString = [numberStringOriginal substringToIndex:dotRange.location];
+    NSArray *numberArray = [ProjectEuler arrayFromString:numberString];
+    
+    for (NSNumber *number in numberArray) {
+        sumOfDigits += [number integerValue];
+    }
+    
+    NSDate *endTime = [NSDate date];
+    NSTimeInterval runTime = [endTime timeIntervalSinceDate:startTime];
+    NSLog(@"Problem 16: %lld, Run Time (secs) = %f", sumOfDigits, runTime);
+    return sumOfDigits;
 }
 
 #pragma mark - Helper Methods
